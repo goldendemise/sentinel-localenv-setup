@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "find-in-files": "^0.5.0"
+    "@vscode/ripgrep": "^1.14.2"
   }
 }
