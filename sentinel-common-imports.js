@@ -9,3 +9,5 @@ const commonFunctions = [
   "azure-functions",
   "gcp-functions",
 ];
+
+module.exports = commonFunctions;
