@@ -6,10 +6,8 @@ const ripGrep = async (phrase) => {
   try {
     const rg = spawn(rgPath, [phrase, process.cwd()]);
     let exitCode = null;
+    // Capture ripgrep exit code and return it after the process finishes
     rg.on("exit", (code) => {
-      if (code === 0) {
-        console.log(`Found match for ${phrase}`);
-      }
       exitCode = code;
     });
     await once(rg, "close");
@@ -18,7 +16,7 @@ const ripGrep = async (phrase) => {
     console.log(`Unexpected error spawning ripgrep search:\n${err}`);
   }
 
-  //exit code for 'no match' is 1
+  //exit code for 'no match' is 1 for ripgrep
   //https://github.com/BurntSushi/ripgrep/issues/948
 };
 
