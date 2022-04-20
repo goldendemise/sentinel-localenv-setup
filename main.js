@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 const ripGrep = require("./ripGrep");
 const sentinelCommonImports = require("./sentinel-common-imports");
-const fileOps = require("fileOps.js");
-const placeholderFunctionDir = "/home/sean/sentinel-functions";
+const fileOps = require("./fileOps.js");
+const placeholderFunctionDir = "/home/sean/sentinel-imports/test/";
 let functionsToImport = [];
 
 //ripGrep("Potato").then((result) => console.log(result));
@@ -23,6 +23,10 @@ const main = async () => {
 
   console.log(
     `The following functions are to be imported: ${functionsToImport}`
+  );
+  fileOps(
+    "tfconfig-fake.sentinel",
+    placeholderFunctionDir + "tfconfig-fake.sentinel"
   );
 };
 

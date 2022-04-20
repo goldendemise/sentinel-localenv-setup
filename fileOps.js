@@ -1,5 +1,9 @@
-import fs from "fs";
+const fs = require("fs");
 
-const createSymlink = async (pathToFunction, functionName) => {
-  fs.promises.symlink(__dirname + functionName, pathToFunction);
+const createSymlink = async (functionName, pathToFunction) => {
+  console.log(`linke being created is ${process.cwd()}/${functionName}`);
+  console.log(`path to function is ${pathToFunction}`);
+  fs.promises.symlink(pathToFunction, `${process.cwd()}/${functionName}`);
 };
+
+module.exports = createSymlink;
