@@ -1,11 +1,9 @@
 #!/usr/bin/env node
 const ripGrep = require("./ripGrep");
 const sentinelCommonImports = require("./sentinel-common-imports");
-const fileOps = require("./fileOps.js");
+const createSymlink = require("./fileOps.js");
 const placeholderFunctionDir = "/home/sean/sentinel-imports/test/";
 let functionsToImport = [];
-
-//ripGrep("Potato").then((result) => console.log(result));
 
 // Check each of the common imports to see if they exist in the customer's code
 // and push them to functionsToImport
@@ -24,7 +22,8 @@ const main = async () => {
   console.log(
     `The following functions are to be imported: ${functionsToImport}`
   );
-  fileOps(
+  // need to loop over the functions to be imported, creating a symlink for each to the local directory for the purposes of appending to the sentinel.hcl file
+  createSymlink(
     "tfconfig-fake.sentinel",
     placeholderFunctionDir + "tfconfig-fake.sentinel"
   );
