@@ -26,8 +26,13 @@ const main = async () => {
     const exitCode = await ripGrep(sentinelImport);
     if (exitCode === 0) {
       console.log(`match found for ${sentinelImport}`);
+      functionsToImport.push(sentinelImport);
     }
   }
+
+  console.log(
+    `The following functions are to be imported: ${functionsToImport}`
+  );
 };
 
 main();
