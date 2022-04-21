@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const ripGrep = require("./ripGrep");
 const sentinelCommonImports = require("./sentinel-common-imports");
-const createSymlink = require("./fileOps.js");
+const createSymlink = require("./createSymlink.js");
 const placeholderFunctionDir = "/home/sean/sentinel-imports/test/";
 let functionsToImport = [];
 
@@ -23,6 +23,13 @@ const main = async () => {
     `The following functions are to be imported: ${functionsToImport}`
   );
   // need to loop over the functions to be imported, creating a symlink for each to the local directory for the purposes of appending to the sentinel.hcl file
+  for (const func of functionsToImport) {
+    createSymlink(
+      `${func}.sentinel`,
+      `${placeholderFunctionDir}${func}.sentinel`
+    );
+  }
+
   createSymlink(
     "tfconfig-fake.sentinel",
     placeholderFunctionDir + "tfconfig-fake.sentinel"
