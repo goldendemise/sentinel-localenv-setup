@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 const ripGrep = require("./ripGrep");
 const sentinelCommonImports = require("./sentinel-common-imports");
-const createSymlink = require("./createSymlink.js");
-const placeholderFunctionDir = "/home/sean/sentinel-imports/test/";
+const createSymlink = require("./createSymlink");
+const createHereDoc = require("./config-heredoc");
+//TODO: Allow user to defined funciton directory location
+const placeholderFunctionDir = "/home/sean/sentinel-imports/";
 let functionsToImport = [];
 
 // Check each of the common imports to see if they exist in the customer's code
@@ -24,16 +26,11 @@ const main = async () => {
   );
   // need to loop over the functions to be imported, creating a symlink for each to the local directory for the purposes of appending to the sentinel.hcl file
   for (const func of functionsToImport) {
-    createSymlink(
+    await createSymlink(
       `${func}.sentinel`,
       `${placeholderFunctionDir}${func}.sentinel`
     );
   }
-
-  createSymlink(
-    "tfconfig-fake.sentinel",
-    placeholderFunctionDir + "tfconfig-fake.sentinel"
-  );
 };
 
 main();
