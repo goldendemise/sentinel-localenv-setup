@@ -57,3 +57,8 @@ mock "tfrun" {
     source = "mock-tfrun.sentinel"
   }
 }
+mock "tfconfig-functions" {
+    module {
+      source = "mock-tfconfig-functions.sentinel"
+    }
+  }

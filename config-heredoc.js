@@ -1,9 +1,9 @@
 const generateHereDoc = (funcName) => {
   return `mock "${funcName}" {
     module {
-      source = "mock-${funcName}.sentinel"
+      source = "${funcName}.sentinel"
     }
-  }`;
+  }\n`;
 };
 
 module.exports = generateHereDoc;

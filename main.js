@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const fs = require("fs");
 const ripGrep = require("./ripGrep");
 const sentinelCommonImports = require("./sentinel-common-imports");
 const createSymlink = require("./createSymlink");
@@ -30,6 +31,9 @@ const main = async () => {
       `${func}.sentinel`,
       `${placeholderFunctionDir}${func}.sentinel`
     );
+    await fs.appendFile("sentinel.hcl", createHereDoc(func), (err) => {
+      if (err) throw err;
+    });
   }
 };
 
