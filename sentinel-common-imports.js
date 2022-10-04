@@ -1,5 +1,6 @@
-//The policies referred to live here at the time of this writing:
+//The governance repository common functions referred to below live in the following repository:
 //https://github.com/hashicorp/terraform-sentinel-policies
+
 const commonFunctions = [
   "tfconfig-functions",
   "tfplan-functions",

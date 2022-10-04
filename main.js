@@ -4,8 +4,14 @@ const ripGrep = require("./ripGrep");
 const sentinelCommonImports = require("./sentinel-common-imports");
 const createSymlink = require("./createSymlink");
 const createHereDoc = require("./config-heredoc");
+const userInputFunctions = require("./user-input-functions");
+
 //TODO: Allow user to defined funciton directory location
 const placeholderFunctionDir = "/home/sean/sentinel-imports/";
+
+//TODO: Pull in the governance functions if they don't already exist at the configured location
+
+
 let functionsToImport = [];
 
 // Check each of the common imports to see if they exist in the customer's code

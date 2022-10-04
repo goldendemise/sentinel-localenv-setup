@@ -1,4 +1,5 @@
 const fs = require("fs");
+const download = require("download");
 
 const functionUrls = {
   "tfconfig-functions":
@@ -17,4 +18,6 @@ const functionUrls = {
     "https://raw.githubusercontent.com/hashicorp/terraform-sentinel-policies/main/gcp/gcp-functions/gcp-functions.sentinel",
 };
 
-const checkForFunctions = async (directory) => {};
+const downloadCommonFunction = dir => {
+
+}

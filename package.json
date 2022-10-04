@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "@vscode/ripgrep": "^1.14.2"
+    "@vscode/ripgrep": "^1.14.2",
+    "download": "^8.0.0"
   },
   "name": "sentlink",
   "description": "This script is intended to pull in helper functions from Hashicorp governance repos to simplify local testing of Sentinel policies",
